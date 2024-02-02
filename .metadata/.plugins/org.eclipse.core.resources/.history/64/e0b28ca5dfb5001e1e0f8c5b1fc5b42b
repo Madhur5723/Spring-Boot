@@ -1,0 +1,72 @@
+package com.demo.AddressService.service;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.modelmapper.ModelMapper;
+
+import com.demo.AddressService.entity.Address;
+import com.demo.AddressService.entity.AddressResponse;
+import com.demo.AddressService.repo.AddressRepositary;
+import com.demo.AddressService.service.AddressService;
+
+public class AddressServiceTest {
+
+    private AddressService addressService;
+    private AddressRepositary addressRepository;
+    private ModelMapper modelMapper;
+
+    @BeforeEach
+    public void setUp() {
+        addressRepository = mock(AddressRepositary.class);
+        modelMapper = mock(ModelMapper.class);
+        addressService = new AddressService(addressRepository, modelMapper);
+    }
+
+    @Test
+    public void testFindUserById_Success() {
+        // Arrange
+        int userId = 1;
+        Address mockAddress = new Address(); // Create a mock Address object
+        AddressResponse expectedAddressResponse = new AddressResponse();
+
+        when(addressRepository.findAddressByUserId(userId)).thenReturn(mockAddress);
+        when(modelMapper.map(mockAddress, AddressResponse.class)).thenReturn(expectedAddressResponse);
+
+        // Act
+        AddressResponse result = addressService.findUserById(userId);
+
+        // Assert
+        assertNotNull(result);
+        assertEquals(expectedAddressResponse, result);
+
+        // Verify that the methods were called with the expected arguments
+        verify(addressRepository, times(1)).findAddressByUserId(userId);
+        verify(modelMapper, times(1)).map(mockAddress, AddressResponse.class);
+    }
+
+    @Test
+    public void testFindUserById_UserNotFound() {
+        // Arrange
+        int userId = 2;
+        when(addressRepository.findAddressByUserId(userId)).thenReturn(null);
+
+        // Act
+        AddressResponse result = addressService.findUserById(userId);
+
+        // Assert
+        assertNull(result);
+
+        // Verify that the methods
+        verify(addressRepository, times(1)).findAddressByUserId(userId);
+        verifyNoInteractions(modelMapper); 
+
+
+}
+

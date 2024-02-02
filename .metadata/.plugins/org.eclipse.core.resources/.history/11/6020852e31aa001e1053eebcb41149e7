@@ -1,0 +1,128 @@
+package com.demo.UserService.service;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
+
+import com.demo.UserService.FeignUtils.AddressClient;
+import com.demo.UserService.entity.AddressResponse;
+import com.demo.UserService.entity.User;
+import com.demo.UserService.entity.UserRequest;
+import com.demo.UserService.entity.UserResponse;
+import com.demo.UserService.exceptions.ResourceNotFoundException;
+import com.demo.UserService.repo.UserRepositary;
+
+@ExtendWith(MockitoExtension.class)
+class UserServiceTest {
+
+    @Mock
+    private UserRepositary repo;
+
+    @Mock
+    private ModelMapper modelMapper;
+
+    @Mock
+    private RestTemplate restTemplate;
+
+    @Mock
+    private AddressClient addressClient;
+
+    @InjectMocks
+    private UserService userService;
+
+    @Test
+    void testSaveUser() {
+        // Arrange
+        UserRequest userRequest = new UserRequest("John Doe", "john@example.com");
+        User user = new User("John Doe", "john@example.com");
+        UserResponse userResponse = new UserResponse(1, "John Doe", "john@example.com");
+
+        when(modelMapper.map(userRequest, User.class)).thenReturn(user);
+        when(repo.save(user)).thenReturn(user);
+        when(modelMapper.map(user, UserResponse.class)).thenReturn(userResponse);
+
+        // Act
+        UserResponse savedUserResponse = userService.saveUser(userRequest);
+
+        // Assert
+        assertNotNull(savedUserResponse);
+        assertEquals(userResponse.getId(), savedUserResponse.getId());
+        assertEquals(userResponse.getName(), savedUserResponse.getName());
+        assertEquals(userResponse.getEmail(), savedUserResponse.getEmail());
+    }
+
+    @Test
+    void testGetAllUser() {
+        // Arrange
+        List<User> users = Arrays.asList(
+                new User(1, "John Doe", "john@example.com"),
+                new User(2, "Jane Doe", "jane@example.com")
+        );
+
+        List<UserResponse> userResponses = Arrays.asList(
+                new UserResponse(1, "John Doe", "john@example.com"),
+                new UserResponse(2, "Jane Doe", "jane@example.com")
+        );
+
+        when(repo.findAll()).thenReturn(users);
+        when(modelMapper.map(users.get(0), UserResponse.class)).thenReturn(userResponses.get(0));
+        when(modelMapper.map(users.get(1), UserResponse.class)).thenReturn(userResponses.get(1));
+
+        // Act
+        List<UserResponse> allUserResponses = userService.getAllUser();
+
+        // Assert
+        assertNotNull(allUserResponses);
+        assertEquals(2, allUserResponses.size());
+        assertEquals(userResponses, allUserResponses);
+    }
+
+    @Test
+    void testGetUserById() {
+        // Arrange
+        int userId = 1;
+        User user = new User(userId, "John Doe", "john@example.com");
+        UserResponse userResponse = new UserResponse(userId, "John Doe", "john@example.com");
+        AddressResponse addressResponse = new AddressResponse("123 Street", "City", "12345");
+
+        when(repo.findById(userId)).thenReturn(Optional.of(user));
+        when(modelMapper.map(user, UserResponse.class)).thenReturn(userResponse);
+        when(addressClient.getAddressByUserId(userId))
+                .thenReturn(new ResponseEntity<>(addressResponse, HttpStatus.OK));
+
+        // Act
+        UserResponse retrievedUserResponse = userService.getUserById(userId);
+
+        // Assert
+        assertNotNull(retrievedUserResponse);
+        assertEquals(userResponse.getId(), retrievedUserResponse.getId());
+        assertEquals(userResponse.getName(), retrievedUserResponse.getName());
+        assertEquals(userResponse.getEmail(), retrievedUserResponse.getEmail());
+        assertEquals(addressResponse, retrievedUserResponse.getAddressResponse());
+    }
+
+    @Test
+    void testGetUserByIdNotFound() {
+        // Arrange
+        int userId = 1;
+
+        when(repo.findById(userId)).thenReturn(Optional.empty());
+
+        // Act and Assert
+        assertThrows(ResourceNotFoundException.class, () -> userService.getUserById(userId));
+    }
+}
+

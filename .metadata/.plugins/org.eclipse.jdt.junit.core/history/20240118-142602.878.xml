@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AddressControllerTest" project="AddressService" tests="2" started="2" failures="0" errors="2" ignored="0">
+  <testsuite name="com.demo.AddressService.controller.AddressControllerTest" time="2.453" displayname="AddressControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.demo.AddressService.controller.AddressControllerTest]">
+    <testcase name="testGetAddressByUserId_Success" classname="com.demo.AddressService.controller.AddressControllerTest" time="2.441" displayname="testGetAddressByUserId_Success()" uniqueid="[engine:junit-jupiter]/[class:com.demo.AddressService.controller.AddressControllerTest]/[method:testGetAddressByUserId_Success()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.demo.AddressService.service.AddressService.findUserById(int)" because "this.addressService" is null&#13;
+	at com.demo.AddressService.controller.AddressController.getAddressByUserId(AddressController.java:22)&#13;
+	at com.demo.AddressService.controller.AddressControllerTest.testGetAddressByUserId_Success(AddressControllerTest.java:37)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testGetAddressByUserId_UserNotFound" classname="com.demo.AddressService.controller.AddressControllerTest" time="0.006" displayname="testGetAddressByUserId_UserNotFound()" uniqueid="[engine:junit-jupiter]/[class:com.demo.AddressService.controller.AddressControllerTest]/[method:testGetAddressByUserId_UserNotFound()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.demo.AddressService.service.AddressService.findUserById(int)" because "this.addressService" is null&#13;
+	at com.demo.AddressService.controller.AddressController.getAddressByUserId(AddressController.java:22)&#13;
+	at com.demo.AddressService.controller.AddressControllerTest.testGetAddressByUserId_UserNotFound(AddressControllerTest.java:52)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

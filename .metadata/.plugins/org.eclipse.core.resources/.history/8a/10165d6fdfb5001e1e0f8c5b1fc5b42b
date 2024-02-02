@@ -1,0 +1,61 @@
+package com.demo.AddressService.controller;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import com.demo.AddressService.entity.AddressResponse;
+import com.demo.AddressService.service.AddressService;
+
+public class AddressControllerTest {
+
+    private AddressController addressController;
+    private AddressService addressService;
+
+    @BeforeEach
+    public void setUp() {
+        addressService = mock(AddressService.class);
+        addressController = new AddressController();
+    }
+
+    @Test
+    public void testGetAddressByUserId_Success() {
+        // Arrange
+        int userId = 1;
+        AddressResponse expectedAddressResponse = new AddressResponse();
+        when(addressService.findUserById(userId)).thenReturn(expectedAddressResponse);
+
+        // Act
+        ResponseEntity<AddressResponse> responseEntity = addressController.getAddressByUserId(userId);
+
+        // Assert
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals(expectedAddressResponse, responseEntity.getBody());
+        verify(addressService, times(1)).findUserById(userId);
+    }
+
+    @Test
+    public void testGetAddressByUserId_UserNotFound() {
+        // Arrange
+        int userId = 2;
+        when(addressService.findUserById(userId)).thenReturn(null);
+
+        // Act
+        ResponseEntity<AddressResponse> responseEntity = addressController.getAddressByUserId(userId);
+
+        // Assert
+        assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
+        verify(addressService, times(1)).findUserById(userId);
+    }
+
+    
+}
+

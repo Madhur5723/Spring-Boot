@@ -1,0 +1,13 @@
+1703948665361	Rename package 'com.demo.UserService'
+1703948686575	Rename package 'com.demo.UserService.config'
+1703948695758	Rename package 'com.demo.UserService.controller'
+1703948705701	Rename package 'com.demo.UserService.entity'
+1703948713876	Rename package 'com.demo.UserService.repo'
+1703948730223	Rename package 'com.demo.UserService.service'
+1703948742004	Rename type 'UserConfig'
+1703948757213	Rename type 'UserController'
+1703948770493	Rename type 'User'
+1703948776728	Delete element
+1703948785016	Delete element
+1703948797545	Rename type 'UserRepositary'
+1703948808678	Rename type 'UserService'

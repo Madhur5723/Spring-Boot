@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UserServiceTest (1)" project="UserServiceFeign" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="com.demo.UserService.service.UserServiceTest" time="3.898" displayname="UserServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.service.UserServiceTest]">
+    <testcase name="testSaveUser" classname="com.demo.UserService.service.UserServiceTest" time="3.791" displayname="testSaveUser()" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.service.UserServiceTest]/[method:testSaveUser()]"/>
+    <testcase name="testGetAllUser" classname="com.demo.UserService.service.UserServiceTest" time="0.013" displayname="testGetAllUser()" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.service.UserServiceTest]/[method:testGetAllUser()]"/>
+    <testcase name="testGetUserById" classname="com.demo.UserService.service.UserServiceTest" time="0.07" displayname="testGetUserById()" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.service.UserServiceTest]/[method:testGetUserById()]"/>
+    <testcase name="testGetUserByIdNotFound" classname="com.demo.UserService.service.UserServiceTest" time="0.014" displayname="testGetUserByIdNotFound()" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.service.UserServiceTest]/[method:testGetUserByIdNotFound()]"/>
+  </testsuite>
+</testrun>

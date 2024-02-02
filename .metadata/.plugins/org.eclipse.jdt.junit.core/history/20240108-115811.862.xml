@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="GlobalExceptionHandlerTest" project="UserServiceFeign" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="com.demo.UserService.exceptions.GlobalExceptionHandlerTest" time="0.022" displayname="GlobalExceptionHandlerTest" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.exceptions.GlobalExceptionHandlerTest]">
+    <testcase name="handleResourceNotFoundException" classname="com.demo.UserService.exceptions.GlobalExceptionHandlerTest" time="0.022" displayname="handleResourceNotFoundException()" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.exceptions.GlobalExceptionHandlerTest]/[method:handleResourceNotFoundException()]">
+      <error>java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "bean" is null&#13;
+	at org.springframework.test.web.servlet.setup.StubWebApplicationContext.addBeans(StubWebApplicationContext.java:149)&#13;
+	at org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder.registerMvcSingletons(StandaloneMockMvcBuilder.java:402)&#13;
+	at org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder.initWebAppContext(StandaloneMockMvcBuilder.java:391)&#13;
+	at org.springframework.test.web.servlet.setup.AbstractMockMvcBuilder.build(AbstractMockMvcBuilder.java:171)&#13;
+	at com.demo.UserService.exceptions.GlobalExceptionHandlerTest.&lt;init&gt;(GlobalExceptionHandlerTest.java:23)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)&#13;
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)&#13;
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

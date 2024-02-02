@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UserControllerTest" project="UserServiceFeign" tests="3" started="3" failures="0" errors="3" ignored="0">
+  <testsuite name="com.demo.UserService.controller.UserControllerTest" time="0.056" displayname="UserControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.controller.UserControllerTest]">
+    <testcase name="testSaveUser" classname="com.demo.UserService.controller.UserControllerTest" time="0.044" displayname="testSaveUser()" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.controller.UserControllerTest]/[method:testSaveUser()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.demo.UserService.service.UserService.saveUser(com.demo.UserService.entity.UserRequest)" because "this.userService" is null&#13;
+	at com.demo.UserService.controller.UserControllerTest.testSaveUser(UserControllerTest.java:89)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testGetAllUser" classname="com.demo.UserService.controller.UserControllerTest" time="0.004" displayname="testGetAllUser()" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.controller.UserControllerTest]/[method:testGetAllUser()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.demo.UserService.service.UserService.getAllUser()" because "this.userService" is null&#13;
+	at com.demo.UserService.controller.UserControllerTest.testGetAllUser(UserControllerTest.java:108)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testGetUserById" classname="com.demo.UserService.controller.UserControllerTest" time="0.005" displayname="testGetUserById()" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.controller.UserControllerTest]/[method:testGetUserById()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.demo.UserService.service.UserService.getUserById(int)" because "this.userService" is null&#13;
+	at com.demo.UserService.controller.UserControllerTest.testGetUserById(UserControllerTest.java:125)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

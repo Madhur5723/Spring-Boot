@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UserServiceFeign" project="UserServiceFeign" tests="7" started="7" failures="0" errors="0" ignored="0">
+  <testsuite name="com.demo.UserService.controller.UserControllerTest" time="3.916" displayname="UserControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.controller.UserControllerTest]">
+    <testcase name="testSaveUser" classname="com.demo.UserService.controller.UserControllerTest" time="3.886" displayname="testSaveUser()" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.controller.UserControllerTest]/[method:testSaveUser()]"/>
+    <testcase name="testGetAllUser" classname="com.demo.UserService.controller.UserControllerTest" time="0.01" displayname="testGetAllUser()" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.controller.UserControllerTest]/[method:testGetAllUser()]"/>
+    <testcase name="testGetUserById" classname="com.demo.UserService.controller.UserControllerTest" time="0.009" displayname="testGetUserById()" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.controller.UserControllerTest]/[method:testGetUserById()]"/>
+  </testsuite>
+  <testsuite name="com.demo.UserService.service.UserServiceTest" time="1.375" displayname="UserServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.service.UserServiceTest]">
+    <testcase name="testSaveUser" classname="com.demo.UserService.service.UserServiceTest" time="1.314" displayname="testSaveUser()" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.service.UserServiceTest]/[method:testSaveUser()]"/>
+    <testcase name="testGetAllUser" classname="com.demo.UserService.service.UserServiceTest" time="0.015" displayname="testGetAllUser()" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.service.UserServiceTest]/[method:testGetAllUser()]"/>
+    <testcase name="testGetUserById" classname="com.demo.UserService.service.UserServiceTest" time="0.018" displayname="testGetUserById()" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.service.UserServiceTest]/[method:testGetUserById()]"/>
+    <testcase name="testGetUserByIdNotFound" classname="com.demo.UserService.service.UserServiceTest" time="0.022" displayname="testGetUserByIdNotFound()" uniqueid="[engine:junit-jupiter]/[class:com.demo.UserService.service.UserServiceTest]/[method:testGetUserByIdNotFound()]"/>
+  </testsuite>
+</testrun>
